@@ -65,6 +65,9 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<Icon_MainIcon>c:\program files\embarcadero\rad studio\9.0\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+			<VerInfo_Locale>1033</VerInfo_Locale>
 			<DCC_RemoteDebug>false</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -92,6 +95,18 @@
 			</DCCReference>
 			<DCCReference Include="uRelatorioVazio.pas">
 				<Form>FRelatorioVazio</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uRelatorioPadraoData.pas">
+				<Form>FRelatorioPadraoData</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uRelMovimentos.pas">
+				<Form>FRelTeste</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uFPadrao.pas">
+				<Form>FPadrao</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
 			<BuildConfiguration Include="Release">

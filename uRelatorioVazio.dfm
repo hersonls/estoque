@@ -1,43 +1,44 @@
 inherited FRelatorioVazio: TFRelatorioVazio
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = 'FRelatorioVazio'
+  ClientHeight = 178
+  ClientWidth = 458
+  ExplicitWidth = 464
+  ExplicitHeight = 206
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 458
+  end
   object GroupBox1: TGroupBox
-    Left = 280
-    Top = 80
-    Width = 215
-    Height = 153
-    Caption = ' Relato'#243'rio '
+    Left = 249
+    Top = 47
+    Width = 191
+    Height = 113
+    Caption = ' Relat'#243'rio '
     TabOrder = 1
     object spbVisualizar: TSpeedButton
-      Left = 48
-      Top = 24
+      Left = 24
+      Top = 16
       Width = 145
-      Height = 54
+      Height = 41
       Caption = 'Visualizar'
     end
     object spbImprimir: TSpeedButton
-      Left = 48
-      Top = 84
+      Left = 24
+      Top = 63
       Width = 145
-      Height = 54
+      Height = 37
       Caption = 'Imprimir'
     end
   end
-  object SQLDataSet1: TSQLDataSet
+  object Dados: TSQLDataSet
     DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
     Params = <>
-    Left = 120
-    Top = 56
-  end
-  object DataSetProvider1: TDataSetProvider
-    Left = 104
-    Top = 136
-  end
-  object ClientDataSet1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 200
-    Top = 56
+    SQLConnection = dm.Conexao
+    Left = 40
+    Top = 48
   end
 end

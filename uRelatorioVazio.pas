@@ -13,9 +13,7 @@ type
     GroupBox1: TGroupBox;
     spbVisualizar: TSpeedButton;
     spbImprimir: TSpeedButton;
-    SQLDataSet1: TSQLDataSet;
-    DataSetProvider1: TDataSetProvider;
-    ClientDataSet1: TClientDataSet;
+    Dados: TSQLDataSet;
   private
     { Private declarations }
   public
@@ -28,5 +26,7 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uDM;
 
 end.

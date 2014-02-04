@@ -21,9 +21,6 @@ object FPrincipal: TFPrincipal
     Width = 665
     Height = 19
     Panels = <>
-    ExplicitLeft = 344
-    ExplicitTop = 216
-    ExplicitWidth = 0
   end
   object Ribbon1: TRibbon
     Left = 0
@@ -31,9 +28,15 @@ object FPrincipal: TFPrincipal
     Width = 665
     Height = 143
     Caption = 'Laborat'#243'rio de Programa'#231#227'o'
-    ExplicitLeft = 344
-    ExplicitTop = 152
-    ExplicitWidth = 0
     StyleName = 'Ribbon - Luna'
+  end
+  object Button1: TButton
+    Left = 216
+    Top = 208
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 2
+    OnClick = Button1Click
   end
 end

@@ -49,7 +49,7 @@ object dm: Tdm
       'Trim Char=False')
     VendorLib = 'fbclient.dll'
     Connected = True
-    Left = 168
-    Top = 104
+    Left = 176
+    Top = 64
   end
 end

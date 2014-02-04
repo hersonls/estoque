@@ -5,16 +5,18 @@ uses
   uPrincipal in 'uPrincipal.pas' {FPrincipal},
   uDM in 'uDM.pas' {dm: TDataModule},
   uPadraoVazio in 'uPadraoVazio.pas' {FPadraoVazio},
-  uRelatorioVazio in 'uRelatorioVazio.pas' {FRelatorioVazio};
+  uRelatorioVazio in 'uRelatorioVazio.pas' {FRelatorioVazio},
+  uRelatorioPadraoData in 'uRelatorioPadraoData.pas' {FRelatorioPadraoData},
+  uRelMovimentos in 'uRelMovimentos.pas' {FRelTeste},
+  uFPadrao in 'uFPadrao.pas' {FPadrao};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFPrincipal, FPrincipal);
   Application.CreateForm(Tdm, dm);
-  Application.CreateForm(TFPadraoVazio, FPadraoVazio);
-  Application.CreateForm(TFRelatorioVazio, FRelatorioVazio);
+  Application.CreateForm(TFPrincipal, FPrincipal);
+  Application.CreateForm(TFPadrao, FPadrao);
   Application.Run;
 end.
