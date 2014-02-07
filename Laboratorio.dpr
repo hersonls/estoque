@@ -8,7 +8,8 @@ uses
   uRelatorioVazio in 'uRelatorioVazio.pas' {FRelatorioVazio},
   uRelatorioPadraoData in 'uRelatorioPadraoData.pas' {FRelatorioPadraoData},
   uRelMovimentos in 'uRelMovimentos.pas' {FRelTeste},
-  uFPadrao in 'uFPadrao.pas' {FPadrao};
+  uFPadrao in 'uFPadrao.pas' {FPadrao},
+  uCadCategoria in 'uCadCategoria.pas' {FCadCategoria};
 
 {$R *.res}
 
@@ -17,6 +18,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(TFPrincipal, FPrincipal);
-  Application.CreateForm(TFPadrao, FPadrao);
   Application.Run;
 end.

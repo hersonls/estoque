@@ -6,25 +6,25 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPadraoVazio, Vcl.ExtCtrls,
   Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, Data.FMTBcd,
-  Data.DB, Datasnap.DBClient, Datasnap.Provider, Data.SqlExpr;
+  Data.DB, Datasnap.DBClient, Datasnap.Provider, Data.SqlExpr, Vcl.ImgList;
 
 type
   TFPadrao = class(TFPadraoVazio)
     PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
+    tabCadastro: TTabSheet;
+    tabConsulta: TTabSheet;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     DBGrid1: TDBGrid;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
+    spbEditar: TSpeedButton;
+    spbExcluir: TSpeedButton;
+    spbImprimir: TSpeedButton;
     edPesquisar: TEdit;
-    SpeedButton4: TSpeedButton;
+    spbPesquisar: TSpeedButton;
     GroupBox4: TGroupBox;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
+    spbSalvar: TSpeedButton;
+    spbNovo: TSpeedButton;
     sqsCadastro: TSQLDataSet;
     dspCadastro: TDataSetProvider;
     cdsCadastro: TClientDataSet;
@@ -33,9 +33,17 @@ type
     dspConsulta: TDataSetProvider;
     cdsConsulta: TClientDataSet;
     dsConsulta: TDataSource;
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    listaDeImagens: TImageList;
+    procedure spbEditarClick(Sender: TObject);
+    procedure spbExcluirClick(Sender: TObject);
+    procedure spbImprimirClick(Sender: TObject);
+    procedure spbNovoClick(Sender: TObject);
+    procedure spbSalvarClick(Sender: TObject);
+    procedure cdsCadastroAfterPost(DataSet: TDataSet);
+    procedure cdsCadastroAfterDelete(DataSet: TDataSet);
+    procedure spbPesquisarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure cdsCadastroNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -51,15 +59,49 @@ implementation
 
 uses uDM;
 
-procedure TFPadrao.SpeedButton1Click(Sender: TObject);
+procedure TFPadrao.cdsCadastroAfterDelete(DataSet: TDataSet);
+begin
+  inherited;
+  cdsCadastro.ApplyUpdates(0);
+end;
+
+procedure TFPadrao.cdsCadastroAfterPost(DataSet: TDataSet);
+begin
+  inherited;
+  cdsCadastro.ApplyUpdates(0);
+end;
+
+procedure TFPadrao.cdsCadastroNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  cdsCadastro.FieldByName('CODIGO').AsInteger := 0;
+end;
+
+procedure TFPadrao.FormCreate(Sender: TObject);
+begin
+  inherited;
+  cdsCadastro.Close;
+  cdsCadastro.Params[0].AsInteger := 0;
+  cdsCadastro.Open;
+end;
+
+procedure TFPadrao.spbEditarClick(Sender: TObject);
 begin
   inherited;
   if cdsConsulta.RecordCount = 0 then
     Exit;
 
+  cdsCadastro.Close;
+  cdsCadastro.Params[0].AsInteger := cdsConsulta.FieldByName('CODIGO').AsInteger;
+  cdsCadastro.Open;
+
+  cdsCadastro.Edit;
+
+  tabCadastro.Show;
+
 end;
 
-procedure TFPadrao.SpeedButton2Click(Sender: TObject);
+procedure TFPadrao.spbExcluirClick(Sender: TObject);
 begin
   inherited;
   if cdsConsulta.RecordCount = 0 then
@@ -72,19 +114,45 @@ begin
       cdsCadastro.Open;
 
       cdsCadastro.Delete;
-      cdsCadastro.ApplyUpdates(0);
     end;
 
   cdsConsulta.Refresh;
 
 end;
 
-procedure TFPadrao.SpeedButton3Click(Sender: TObject);
+procedure TFPadrao.spbImprimirClick(Sender: TObject);
 begin
   inherited;
   if cdsConsulta.RecordCount = 0 then
     Exit;
 
+end;
+
+procedure TFPadrao.spbNovoClick(Sender: TObject);
+begin
+  inherited;
+  cdsCadastro.Append;
+end;
+
+procedure TFPadrao.spbPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  if Trim(edPesquisar.Text) = ''  then
+    Exit;
+
+end;
+
+procedure TFPadrao.spbSalvarClick(Sender: TObject);
+begin
+  inherited;
+  try
+    cdsCadastro.Post;
+  except
+    on e: Exception do
+      begin
+        ShowMessage(e.Message);
+      end;
+  end;
 end;
 
 end.

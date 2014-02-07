@@ -5,15 +5,21 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.RibbonLunaStyleActnCtrls,
-  Vcl.Ribbon, Vcl.ComCtrls, Vcl.StdCtrls;
+  Vcl.Ribbon, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ImgList, Vcl.ToolWin, Vcl.ActnMan,
+  Vcl.ActnCtrls, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnList;
 
 type
   TFPrincipal = class(TForm)
     StatusBar1: TStatusBar;
     Ribbon1: TRibbon;
-    Button1: TButton;
+    listaDeImagens: TImageList;
+    RibbonPage1: TRibbonPage;
+    RibbonPage2: TRibbonPage;
+    RibbonGroup1: TRibbonGroup;
+    ActionManager1: TActionManager;
+    acCategoria: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure Button1Click(Sender: TObject);
+    procedure acCategoriaExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,11 +33,11 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos;
+uses uRelMovimentos, uCadCategoria;
 
-procedure TFPrincipal.Button1Click(Sender: TObject);
+procedure TFPrincipal.acCategoriaExecute(Sender: TObject);
 begin
-  TFRelTeste.Create(Self).ShowModal;
+    TFCadCategoria.Create(Self).ShowModal;
 end;
 
 procedure TFPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
