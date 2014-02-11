@@ -18,8 +18,10 @@ type
     RibbonGroup1: TRibbonGroup;
     ActionManager1: TActionManager;
     acCategoria: TAction;
+    acCadLote: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acCategoriaExecute(Sender: TObject);
+    procedure acCadLoteExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,11 +35,16 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos, uCadCategoria;
+uses uRelMovimentos, uCadCategoria, uCadLote;
+
+procedure TFPrincipal.acCadLoteExecute(Sender: TObject);
+begin
+  TFCadLote.Create(Self).Show;
+end;
 
 procedure TFPrincipal.acCategoriaExecute(Sender: TObject);
 begin
-    TFCadCategoria.Create(Self).ShowModal;
+    TFCadCategoria.Create(Self).Show;
 end;
 
 procedure TFPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

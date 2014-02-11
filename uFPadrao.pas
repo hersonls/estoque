@@ -34,6 +34,7 @@ type
     cdsConsulta: TClientDataSet;
     dsConsulta: TDataSource;
     listaDeImagens: TImageList;
+    SpeedButton1: TSpeedButton;
     procedure spbEditarClick(Sender: TObject);
     procedure spbExcluirClick(Sender: TObject);
     procedure spbImprimirClick(Sender: TObject);
@@ -44,6 +45,8 @@ type
     procedure spbPesquisarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cdsCadastroNewRecord(DataSet: TDataSet);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -68,13 +71,19 @@ end;
 procedure TFPadrao.cdsCadastroAfterPost(DataSet: TDataSet);
 begin
   inherited;
-  cdsCadastro.ApplyUpdates(0);
+  cdsCadastro.ApplyUpdates(-1);
 end;
 
 procedure TFPadrao.cdsCadastroNewRecord(DataSet: TDataSet);
 begin
   inherited;
-  cdsCadastro.FieldByName('CODIGO').AsInteger := 0;
+//  cdsCadastro.FieldByName('CODIGO').AsInteger := 0;
+end;
+
+procedure TFPadrao.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action := caFree;
 end;
 
 procedure TFPadrao.FormCreate(Sender: TObject);
@@ -83,6 +92,10 @@ begin
   cdsCadastro.Close;
   cdsCadastro.Params[0].AsInteger := 0;
   cdsCadastro.Open;
+
+  tabConsulta.Show;
+
+  spbPesquisar.Click;
 end;
 
 procedure TFPadrao.spbEditarClick(Sender: TObject);
@@ -153,6 +166,12 @@ begin
         ShowMessage(e.Message);
       end;
   end;
+end;
+
+procedure TFPadrao.SpeedButton1Click(Sender: TObject);
+begin
+  inherited;
+  Close;
 end;
 
 end.

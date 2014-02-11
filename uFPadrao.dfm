@@ -1,42 +1,58 @@
 inherited FPadrao: TFPadrao
   Caption = 'Formulario Padrao'
   ClientHeight = 384
-  ClientWidth = 675
+  ClientWidth = 717
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
   OnCreate = FormCreate
-  ExplicitWidth = 691
+  ExplicitWidth = 733
   ExplicitHeight = 422
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Width = 675
+    Width = 717
     BevelInner = bvNone
     BevelOuter = bvNone
     ExplicitLeft = 0
     ExplicitTop = 0
     ExplicitWidth = 675
+    object SpeedButton1: TSpeedButton
+      Left = 622
+      Top = 3
+      Width = 89
+      Height = 32
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Caption = 'Sair'
+      Flat = True
+      OnClick = SpeedButton1Click
+      ExplicitLeft = 580
+    end
   end
   object PageControl1: TPageControl
     Left = 0
     Top = 41
-    Width = 675
+    Width = 717
     Height = 343
     ActivePage = tabConsulta
     Align = alClient
     Images = listaDeImagens
     TabOrder = 1
+    ExplicitWidth = 675
     object tabCadastro: TTabSheet
       Caption = 'Cadastro'
       ImageIndex = 2
-      ExplicitTop = 24
-      ExplicitHeight = 315
+      ExplicitWidth = 667
       object GroupBox4: TGroupBox
         Left = 0
         Top = 239
-        Width = 667
+        Width = 709
         Height = 59
         Align = alBottom
         TabOrder = 0
-        ExplicitTop = 256
+        ExplicitWidth = 667
         object spbSalvar: TSpeedButton
           Left = 106
           Top = 15
@@ -176,18 +192,16 @@ inherited FPadrao: TFPadrao
     object tabConsulta: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 60
-      ExplicitTop = 24
-      ExplicitHeight = 315
+      ExplicitWidth = 667
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0
-        Width = 667
+        Width = 709
         Height = 57
         Align = alTop
         Caption = ' Pesquisar '
         TabOrder = 0
-        ExplicitLeft = 32
-        ExplicitTop = 96
+        ExplicitWidth = 667
         object spbPesquisar: TSpeedButton
           Left = 399
           Top = 19
@@ -308,16 +322,16 @@ inherited FPadrao: TFPadrao
       object GroupBox2: TGroupBox
         Left = 0
         Top = 57
-        Width = 667
+        Width = 709
         Height = 198
         Align = alClient
         Caption = ' Registros encontrados '
         TabOrder = 1
-        ExplicitHeight = 215
+        ExplicitWidth = 667
         object DBGrid1: TDBGrid
           Left = 2
           Top = 15
-          Width = 663
+          Width = 705
           Height = 181
           Cursor = crHandPoint
           Align = alClient
@@ -334,11 +348,11 @@ inherited FPadrao: TFPadrao
       object GroupBox3: TGroupBox
         Left = 0
         Top = 255
-        Width = 667
+        Width = 709
         Height = 43
         Align = alBottom
         TabOrder = 2
-        ExplicitTop = 272
+        ExplicitWidth = 667
         object spbEditar: TSpeedButton
           Left = 3
           Top = 6
@@ -440,6 +454,7 @@ inherited FPadrao: TFPadrao
   end
   object dspCadastro: TDataSetProvider
     DataSet = sqsCadastro
+    UpdateMode = upWhereKeyOnly
     Left = 312
     Top = 160
   end
@@ -491,7 +506,7 @@ inherited FPadrao: TFPadrao
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001500320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001540320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

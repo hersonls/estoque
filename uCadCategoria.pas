@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFPadrao, Data.FMTBcd, Vcl.ImgList,
   Data.DB, Datasnap.DBClient, Datasnap.Provider, Data.SqlExpr, Vcl.Grids,
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Mask,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, uTUtils;
 
 type
   TFCadCategoria = class(TFPadrao)
@@ -18,6 +18,7 @@ type
     Label1: TLabel;
     dbNome: TDBEdit;
     procedure spbPesquisarClick(Sender: TObject);
+    procedure cdsCadastroNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -30,6 +31,18 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFCadCategoria.cdsCadastroNewRecord(DataSet: TDataSet);
+var
+  util : TUtils;
+begin
+ // cdsCadastroCODIGO.AsInteger := getId('CATEGORIA_CODIGO_GEN');
+  util := TUtils.Create;
+  cdsCadastroCODIGO.AsInteger := util.getId('CATEGORIA_CODIGO_GEN');
+  util.Free;
+  inherited;
+
+end;
 
 procedure TFCadCategoria.spbPesquisarClick(Sender: TObject);
 begin

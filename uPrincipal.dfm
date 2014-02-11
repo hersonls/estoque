@@ -10,6 +10,7 @@ object FPrincipal: TFPrincipal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   OldCreateOrder = False
   WindowState = wsMaximized
   OnClose = FormClose
@@ -61,7 +62,7 @@ object FPrincipal: TFPrincipal
       object RibbonGroup1: TRibbonGroup
         Left = 4
         Top = 3
-        Width = 65
+        Width = 107
         Height = 86
         Cursor = crHandPoint
         ActionManager = ActionManager1
@@ -77,7 +78,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C0101410050014C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001500320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9069,6 +9070,11 @@ object FPrincipal: TFPrincipal
             Caption = '&Categoria'
             ImageIndex = 51
             CommandProperties.ButtonSize = bsLarge
+          end
+          item
+            Action = acCadLote
+            ImageIndex = 3
+            CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup1
       end>
@@ -9081,6 +9087,12 @@ object FPrincipal: TFPrincipal
       Caption = 'Categoria'
       ImageIndex = 51
       OnExecute = acCategoriaExecute
+    end
+    object acCadLote: TAction
+      Category = 'Estoque'
+      Caption = 'Lote'
+      ImageIndex = 3
+      OnExecute = acCadLoteExecute
     end
   end
 end

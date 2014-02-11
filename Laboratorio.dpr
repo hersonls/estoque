@@ -9,7 +9,10 @@ uses
   uRelatorioPadraoData in 'uRelatorioPadraoData.pas' {FRelatorioPadraoData},
   uRelMovimentos in 'uRelMovimentos.pas' {FRelTeste},
   uFPadrao in 'uFPadrao.pas' {FPadrao},
-  uCadCategoria in 'uCadCategoria.pas' {FCadCategoria};
+  uCadCategoria in 'uCadCategoria.pas' {FCadCategoria},
+  uFuncoes in 'uFuncoes.pas',
+  uTUtils in 'uTUtils.pas',
+  uCadLote in 'uCadLote.pas' {FCadLote};
 
 {$R *.res}
 

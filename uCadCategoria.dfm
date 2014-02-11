@@ -4,8 +4,6 @@ inherited FCadCategoria: TFCadCategoria
   TextHeight = 13
   inherited PageControl1: TPageControl
     inherited tabCadastro: TTabSheet
-      ExplicitTop = 41
-      ExplicitHeight = 298
       object Label1: TLabel [0]
         Left = 24
         Top = 40
@@ -13,9 +11,6 @@ inherited FCadCategoria: TFCadCategoria
         Height = 13
         Caption = 'Nome'
         FocusControl = dbNome
-      end
-      inherited GroupBox4: TGroupBox
-        ExplicitTop = 239
       end
       object dbNome: TDBEdit
         Left = 24
@@ -29,20 +24,10 @@ inherited FCadCategoria: TFCadCategoria
       end
     end
     inherited tabConsulta: TTabSheet
-      ExplicitTop = 41
-      ExplicitHeight = 298
-      inherited GroupBox1: TGroupBox
-        ExplicitLeft = 0
-        ExplicitTop = 0
-      end
       inherited GroupBox2: TGroupBox
-        ExplicitHeight = 198
         inherited DBGrid1: TDBGrid
           DataSource = dsConsulta
         end
-      end
-      inherited GroupBox3: TGroupBox
-        ExplicitTop = 255
       end
     end
   end
@@ -111,7 +96,7 @@ inherited FCadCategoria: TFCadCategoria
   end
   inherited listaDeImagens: TImageList
     Bitmap = {
-      494C010141005001540320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001580320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
