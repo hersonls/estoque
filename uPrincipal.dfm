@@ -62,7 +62,7 @@ object FPrincipal: TFPrincipal
       object RibbonGroup1: TRibbonGroup
         Left = 4
         Top = 3
-        Width = 107
+        Width = 160
         Height = 86
         Cursor = crHandPoint
         ActionManager = ActionManager1
@@ -78,7 +78,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001500320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001540320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9073,7 +9073,13 @@ object FPrincipal: TFPrincipal
           end
           item
             Action = acCadLote
+            Caption = '&Lote'
             ImageIndex = 3
+            CommandProperties.ButtonSize = bsLarge
+          end
+          item
+            Action = acProdutos
+            ImageIndex = 11
             CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup1
@@ -9093,6 +9099,12 @@ object FPrincipal: TFPrincipal
       Caption = 'Lote'
       ImageIndex = 3
       OnExecute = acCadLoteExecute
+    end
+    object acProdutos: TAction
+      Category = 'Estoque'
+      Caption = 'Produtos'
+      ImageIndex = 11
+      OnExecute = acProdutosExecute
     end
   end
 end

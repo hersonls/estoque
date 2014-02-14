@@ -19,9 +19,11 @@ type
     ActionManager1: TActionManager;
     acCategoria: TAction;
     acCadLote: TAction;
+    acProdutos: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acCategoriaExecute(Sender: TObject);
     procedure acCadLoteExecute(Sender: TObject);
+    procedure acProdutosExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +37,7 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos, uCadCategoria, uCadLote;
+uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos;
 
 procedure TFPrincipal.acCadLoteExecute(Sender: TObject);
 begin
@@ -45,6 +47,11 @@ end;
 procedure TFPrincipal.acCategoriaExecute(Sender: TObject);
 begin
     TFCadCategoria.Create(Self).Show;
+end;
+
+procedure TFPrincipal.acProdutosExecute(Sender: TObject);
+begin
+  TFCadProdutos.Create(Self).Show;
 end;
 
 procedure TFPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

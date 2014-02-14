@@ -1,12 +1,13 @@
 inherited FCadLote: TFCadLote
-  Caption = 'FCadLote'
+  Caption = 'Cadastro de lotes de produtos'
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel1: TPanel
+    ExplicitWidth = 158
+  end
   inherited PageControl1: TPageControl
-    ActivePage = tabCadastro
-    ExplicitWidth = 717
     inherited tabCadastro: TTabSheet
-      ExplicitWidth = 709
+      ExplicitWidth = 150
       object Label1: TLabel [0]
         Left = 24
         Top = 8
@@ -24,7 +25,7 @@ inherited FCadLote: TFCadLote
         FocusControl = DBEdit2
       end
       inherited GroupBox4: TGroupBox
-        ExplicitWidth = 709
+        ExplicitWidth = 150
       end
       object DBEdit1: TDBEdit
         Left = 24
@@ -46,7 +47,15 @@ inherited FCadLote: TFCadLote
       end
     end
     inherited tabConsulta: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 41
+      ExplicitWidth = 709
+      ExplicitHeight = 298
+      inherited GroupBox1: TGroupBox
+        ExplicitWidth = 709
+      end
       inherited GroupBox2: TGroupBox
+        ExplicitWidth = 709
         inherited DBGrid1: TDBGrid
           Columns = <
             item
@@ -69,6 +78,9 @@ inherited FCadLote: TFCadLote
               Visible = True
             end>
         end
+      end
+      inherited GroupBox3: TGroupBox
+        ExplicitWidth = 709
       end
     end
   end
@@ -147,7 +159,7 @@ inherited FCadLote: TFCadLote
   end
   inherited listaDeImagens: TImageList
     Bitmap = {
-      494C010141005001580320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101410050015C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

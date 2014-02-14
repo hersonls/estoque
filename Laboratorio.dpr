@@ -12,7 +12,8 @@ uses
   uCadCategoria in 'uCadCategoria.pas' {FCadCategoria},
   uFuncoes in 'uFuncoes.pas',
   uTUtils in 'uTUtils.pas',
-  uCadLote in 'uCadLote.pas' {FCadLote};
+  uCadLote in 'uCadLote.pas' {FCadLote},
+  uCadProdutos in 'uCadProdutos.pas' {FCadProdutos};
 
 {$R *.res}
 
