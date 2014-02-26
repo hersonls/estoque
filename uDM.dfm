@@ -1,7 +1,7 @@
 object dm: Tdm
   OldCreateOrder = False
-  Height = 233
-  Width = 364
+  Height = 388
+  Width = 603
   object Conexao: TSQLConnection
     ConnectionName = 'FBConnection'
     DriverName = 'Firebird'
@@ -30,26 +30,25 @@ object dm: Tdm
       'VendorLib=fbclient.dll'
       'VendorLibWin64=fbclient.dll'
       'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
-      'Role=RoleName'
-      'MaxBlobSize=-1'
-      'TrimChar=False'
-      'DriverName=Firebird'
       'Database=C:\laboratorio\banco\LABORATORIO.GDB'
-      'RoleName=RoleName'
       'User_Name=sysdba'
       'Password=masterkey'
-      'ServerCharSet='
-      'SQLDialect=3'
-      'ErrorResourceFile='
+      'Role=RoleName'
+      'MaxBlobSize=-1'
       'LocaleCode=0000'
-      'BlobSize=-1'
+      'IsolationLevel=ReadCommitted'
+      'SQLDialect=3'
       'CommitRetain=False'
       'WaitOnLocks=True'
-      'IsolationLevel=ReadCommitted'
+      'TrimChar=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'RoleName=RoleName'
+      'ServerCharSet='
       'Trim Char=False')
     VendorLib = 'fbclient.dll'
     Connected = True
-    Left = 176
-    Top = 64
+    Left = 232
+    Top = 56
   end
 end

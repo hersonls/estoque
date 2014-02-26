@@ -13,7 +13,8 @@ uses
   uFuncoes in 'uFuncoes.pas',
   uTUtils in 'uTUtils.pas',
   uCadLote in 'uCadLote.pas' {FCadLote},
-  uCadProdutos in 'uCadProdutos.pas' {FCadProdutos};
+  uCadProdutos in 'uCadProdutos.pas' {FCadProdutos},
+  uCadMarca in 'uCadMarca.pas' {FCadMarcas};
 
 {$R *.res}
 

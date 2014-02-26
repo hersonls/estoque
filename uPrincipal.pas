@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.RibbonLunaStyleActnCtrls,
   Vcl.Ribbon, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ImgList, Vcl.ToolWin, Vcl.ActnMan,
-  Vcl.ActnCtrls, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnList;
+  Vcl.ActnCtrls, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnList,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls;
 
 type
   TFPrincipal = class(TForm)
@@ -20,10 +21,13 @@ type
     acCategoria: TAction;
     acCadLote: TAction;
     acProdutos: TAction;
+    Image1: TImage;
+    acMarca: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acCategoriaExecute(Sender: TObject);
     procedure acCadLoteExecute(Sender: TObject);
     procedure acProdutosExecute(Sender: TObject);
+    procedure acMarcaExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +41,7 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos;
+uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos, uCadMarca;
 
 procedure TFPrincipal.acCadLoteExecute(Sender: TObject);
 begin
@@ -47,6 +51,11 @@ end;
 procedure TFPrincipal.acCategoriaExecute(Sender: TObject);
 begin
     TFCadCategoria.Create(Self).Show;
+end;
+
+procedure TFPrincipal.acMarcaExecute(Sender: TObject);
+begin
+  TFCadMarcas.Create(Self).Show;
 end;
 
 procedure TFPrincipal.acProdutosExecute(Sender: TObject);

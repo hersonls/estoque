@@ -2,27 +2,11 @@ inherited FCadProdutos: TFCadProdutos
   Caption = 'Cadastro de Produtos'
   PixelsPerInch = 96
   TextHeight = 13
-  object Label2: TLabel [0]
-    Left = 336
-    Top = 96
-    Width = 31
-    Height = 13
-    Caption = 'Label2'
-  end
-  object Label3: TLabel [1]
-    Left = 560
-    Top = 136
-    Width = 31
-    Height = 13
-    Caption = 'Label3'
+  inherited Panel1: TPanel
+    ExplicitWidth = 158
   end
   inherited PageControl1: TPageControl
-    ActivePage = tabCadastro
     inherited tabCadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 41
-      ExplicitWidth = 709
-      ExplicitHeight = 298
       object Label1: TLabel [0]
         Left = 16
         Top = 16
@@ -31,17 +15,194 @@ inherited FCadProdutos: TFCadProdutos
         Caption = 'Nome'
         FocusControl = DBEdit1
       end
-      inherited GroupBox4: TGroupBox
-        ExplicitWidth = 709
+      object Label2: TLabel [1]
+        Left = 332
+        Top = 16
+        Width = 47
+        Height = 13
+        Caption = 'Categoria'
+        FocusControl = DBLookupComboBox1
+      end
+      object Label3: TLabel [2]
+        Left = 16
+        Top = 56
+        Width = 82
+        Height = 13
+        Caption = 'C'#243'digo de Barras'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel [3]
+        Left = 332
+        Top = 56
+        Width = 29
+        Height = 13
+        Caption = 'Marca'
+        FocusControl = DBLookupComboBox2
+      end
+      object Label5: TLabel [4]
+        Left = 184
+        Top = 56
+        Width = 19
+        Height = 13
+        Caption = 'Rua'
+        FocusControl = DBEdit3
+      end
+      object Label6: TLabel [5]
+        Left = 16
+        Top = 96
+        Width = 46
+        Height = 13
+        Caption = 'Prateleira'
+        FocusControl = DBEdit4
+      end
+      object Label7: TLabel [6]
+        Left = 184
+        Top = 96
+        Width = 29
+        Height = 13
+        Caption = 'Se'#231#227'o'
+        FocusControl = DBEdit5
+      end
+      object Label8: TLabel [7]
+        Left = 332
+        Top = 96
+        Width = 39
+        Height = 13
+        Caption = 'Estoque'
+        FocusControl = DBEdit6
+      end
+      object Label9: TLabel [8]
+        Left = 444
+        Top = 96
+        Width = 74
+        Height = 13
+        Caption = 'Estoque Minimo'
+        FocusControl = DBEdit7
+      end
+      object Label10: TLabel [9]
+        Left = 16
+        Top = 137
+        Width = 74
+        Height = 13
+        Caption = 'Pre'#231'o Custo R$'
+        FocusControl = DBEdit8
+      end
+      object Label11: TLabel [10]
+        Left = 184
+        Top = 137
+        Width = 76
+        Height = 13
+        Caption = 'Pre'#231'o Venda R$'
+        FocusControl = DBEdit9
       end
       object DBEdit1: TDBEdit
         Left = 16
         Top = 32
         Width = 300
         Height = 21
+        CharCase = ecUpperCase
         DataField = 'NOME'
         DataSource = dsCadastro
         TabOrder = 1
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 332
+        Top = 29
+        Width = 205
+        Height = 21
+        DataField = 'CATEGORIA'
+        DataSource = dsCadastro
+        KeyField = 'CODIGO'
+        ListField = 'NOME'
+        ListSource = dsCategoria
+        TabOrder = 2
+      end
+      object DBEdit2: TDBEdit
+        Left = 16
+        Top = 72
+        Width = 145
+        Height = 21
+        DataField = 'CODBARRAS'
+        DataSource = dsCadastro
+        TabOrder = 3
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 332
+        Top = 72
+        Width = 205
+        Height = 21
+        DataField = 'MARCA'
+        DataSource = dsCadastro
+        KeyField = 'CODIGO'
+        ListField = 'NOME'
+        ListSource = dsMarca
+        TabOrder = 4
+      end
+      object DBEdit3: TDBEdit
+        Left = 184
+        Top = 72
+        Width = 132
+        Height = 21
+        CharCase = ecUpperCase
+        DataField = 'RUA'
+        DataSource = dsCadastro
+        TabOrder = 5
+      end
+      object DBEdit4: TDBEdit
+        Left = 16
+        Top = 110
+        Width = 145
+        Height = 21
+        CharCase = ecUpperCase
+        DataField = 'PRATELEIRA'
+        DataSource = dsCadastro
+        TabOrder = 6
+      end
+      object DBEdit5: TDBEdit
+        Left = 184
+        Top = 110
+        Width = 132
+        Height = 21
+        CharCase = ecUpperCase
+        DataField = 'SECAO'
+        DataSource = dsCadastro
+        TabOrder = 7
+      end
+      object DBEdit6: TDBEdit
+        Left = 332
+        Top = 110
+        Width = 93
+        Height = 21
+        DataField = 'ESTOQUE'
+        DataSource = dsCadastro
+        TabOrder = 8
+      end
+      object DBEdit7: TDBEdit
+        Left = 444
+        Top = 110
+        Width = 93
+        Height = 21
+        DataField = 'ESTOQUE_MIN'
+        DataSource = dsCadastro
+        TabOrder = 9
+      end
+      object DBEdit8: TDBEdit
+        Left = 16
+        Top = 152
+        Width = 145
+        Height = 21
+        DataField = 'PCUSTO'
+        DataSource = dsCadastro
+        TabOrder = 10
+      end
+      object DBEdit9: TDBEdit
+        Left = 184
+        Top = 152
+        Width = 132
+        Height = 21
+        DataField = 'PVENDA'
+        DataSource = dsCadastro
+        TabOrder = 11
       end
     end
     inherited tabConsulta: TTabSheet
@@ -105,18 +266,6 @@ inherited FCadProdutos: TFCadProdutos
       end
     end
   end
-  object DBLookupComboBox1: TDBLookupComboBox [4]
-    Left = 336
-    Top = 114
-    Width = 145
-    Height = 21
-    DataField = 'CATEGORIA'
-    DataSource = dsCadastro
-    KeyField = 'CODIGO'
-    ListField = 'NOME'
-    ListSource = dsCategoria
-    TabOrder = 2
-  end
   inherited sqsCadastro: TSQLDataSet
     CommandText = 'select * from produtos where codigo=:codigo'
     Params = <
@@ -125,6 +274,12 @@ inherited FCadProdutos: TFCadProdutos
         Name = 'codigo'
         ParamType = ptInput
       end>
+    Left = 464
+    Top = 16
+  end
+  inherited dspCadastro: TDataSetProvider
+    Left = 496
+    Top = 16
   end
   inherited cdsCadastro: TClientDataSet
     Params = <
@@ -133,6 +288,8 @@ inherited FCadProdutos: TFCadProdutos
         Name = 'codigo'
         ParamType = ptInput
       end>
+    Left = 528
+    Top = 16
     object cdsCadastroCODIGO: TIntegerField
       FieldName = 'CODIGO'
       Required = True
@@ -153,11 +310,13 @@ inherited FCadProdutos: TFCadProdutos
     end
     object cdsCadastroPCUSTO: TFMTBCDField
       FieldName = 'PCUSTO'
+      currency = True
       Precision = 18
       Size = 2
     end
     object cdsCadastroPVENDA: TFMTBCDField
       FieldName = 'PVENDA'
+      currency = True
       Precision = 18
       Size = 2
     end
@@ -183,6 +342,10 @@ inherited FCadProdutos: TFCadProdutos
       Precision = 18
       Size = 3
     end
+  end
+  inherited dsCadastro: TDataSource
+    Left = 560
+    Top = 16
   end
   inherited sqsConsulta: TSQLDataSet
     CommandText = 
@@ -210,6 +373,12 @@ inherited FCadProdutos: TFCadProdutos
         Name = 'MARCA'
         ParamType = ptInput
       end>
+    Left = 256
+    Top = 328
+  end
+  inherited dspConsulta: TDataSetProvider
+    Left = 288
+    Top = 328
   end
   inherited cdsConsulta: TClientDataSet
     Params = <
@@ -233,6 +402,8 @@ inherited FCadProdutos: TFCadProdutos
         Name = 'MARCA'
         ParamType = ptInput
       end>
+    Left = 320
+    Top = 328
     object cdsConsultaCODIGO: TIntegerField
       FieldName = 'CODIGO'
     end
@@ -284,18 +455,26 @@ inherited FCadProdutos: TFCadProdutos
     end
     object cdsConsultaESTOQUE: TFMTBCDField
       FieldName = 'ESTOQUE'
+      DisplayFormat = '#0.00'
       Precision = 18
       Size = 3
     end
     object cdsConsultaESTOQUE_MIN: TFMTBCDField
       FieldName = 'ESTOQUE_MIN'
+      DisplayFormat = '#0.00'
       Precision = 18
       Size = 3
     end
   end
+  inherited dsConsulta: TDataSource
+    Left = 352
+    Top = 328
+  end
   inherited listaDeImagens: TImageList
+    Left = 432
+    Top = 304
     Bitmap = {
-      494C0101410050015C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001640320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9285,24 +9464,47 @@ inherited FCadProdutos: TFCadProdutos
     MaxBlobSize = -1
     Params = <>
     SQLConnection = dm.Conexao
-    Left = 24
-    Top = 176
+    Left = 16
   end
   object dspCategoria: TDataSetProvider
     DataSet = sqsCategoria
-    Left = 16
-    Top = 224
+    Left = 48
   end
   object cdsCategoria: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCategoria'
-    Left = 24
-    Top = 272
+    Left = 72
   end
   object dsCategoria: TDataSource
     DataSet = cdsCategoria
-    Left = 80
-    Top = 264
+    Left = 104
+  end
+  object sqsMarca: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'select * from marca'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dm.Conexao
+    Left = 240
+    Top = 8
+  end
+  object dspMarca: TDataSetProvider
+    DataSet = sqsMarca
+    Left = 272
+    Top = 8
+  end
+  object cdsMarca: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspMarca'
+    Left = 296
+    Top = 8
+  end
+  object dsMarca: TDataSource
+    DataSet = cdsMarca
+    Left = 328
+    Top = 8
   end
 end

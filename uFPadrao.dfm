@@ -17,7 +17,10 @@ inherited FPadrao: TFPadrao
     BevelOuter = bvNone
     ExplicitLeft = 0
     ExplicitTop = 0
-    ExplicitWidth = 675
+    ExplicitWidth = 717
+    DesignSize = (
+      717
+      41)
     object SpeedButton1: TSpeedButton
       Left = 622
       Top = 3
@@ -40,11 +43,9 @@ inherited FPadrao: TFPadrao
     Align = alClient
     Images = listaDeImagens
     TabOrder = 1
-    ExplicitWidth = 675
     object tabCadastro: TTabSheet
       Caption = 'Cadastro'
       ImageIndex = 2
-      ExplicitWidth = 667
       object GroupBox4: TGroupBox
         Left = 0
         Top = 239
@@ -52,7 +53,6 @@ inherited FPadrao: TFPadrao
         Height = 59
         Align = alBottom
         TabOrder = 0
-        ExplicitWidth = 667
         object spbSalvar: TSpeedButton
           Left = 106
           Top = 15
@@ -192,7 +192,6 @@ inherited FPadrao: TFPadrao
     object tabConsulta: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 60
-      ExplicitWidth = 667
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0
@@ -201,7 +200,6 @@ inherited FPadrao: TFPadrao
         Align = alTop
         Caption = ' Pesquisar '
         TabOrder = 0
-        ExplicitWidth = 667
         object spbPesquisar: TSpeedButton
           Left = 399
           Top = 19
@@ -327,7 +325,6 @@ inherited FPadrao: TFPadrao
         Align = alClient
         Caption = ' Registros encontrados '
         TabOrder = 1
-        ExplicitWidth = 667
         object DBGrid1: TDBGrid
           Left = 2
           Top = 15
@@ -337,6 +334,8 @@ inherited FPadrao: TFPadrao
           Align = alClient
           BorderStyle = bsNone
           DataSource = dsCadastro
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+          ReadOnly = True
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -352,7 +351,6 @@ inherited FPadrao: TFPadrao
         Height = 43
         Align = alBottom
         TabOrder = 2
-        ExplicitWidth = 667
         object spbEditar: TSpeedButton
           Left = 3
           Top = 6
@@ -506,7 +504,7 @@ inherited FPadrao: TFPadrao
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001540320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001580320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

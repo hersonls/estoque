@@ -4,6 +4,10 @@ inherited FCadCategoria: TFCadCategoria
   TextHeight = 13
   inherited PageControl1: TPageControl
     inherited tabCadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel [0]
         Left = 24
         Top = 40
@@ -24,6 +28,7 @@ inherited FCadCategoria: TFCadCategoria
       end
     end
     inherited tabConsulta: TTabSheet
+      ExplicitWidth = 150
       inherited GroupBox2: TGroupBox
         inherited DBGrid1: TDBGrid
           DataSource = dsConsulta
@@ -96,7 +101,7 @@ inherited FCadCategoria: TFCadCategoria
   end
   inherited listaDeImagens: TImageList
     Bitmap = {
-      494C010141005001580320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101410050015C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
