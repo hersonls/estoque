@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFPadrao, Data.FMTBcd, Vcl.ImgList,
   Data.DB, Datasnap.DBClient, Datasnap.Provider, Data.SqlExpr, Vcl.Grids,
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask,
-  Vcl.DBCtrls, uTUtils;
+  Vcl.DBCtrls, uTUtils, uTprodutos;
 
 type
   TFCadProdutos = class(TFPadrao)
@@ -71,8 +71,10 @@ type
     procedure spbNovoClick(Sender: TObject);
     procedure spbEditarClick(Sender: TObject);
     procedure cdsCadastroNewRecord(DataSet: TDataSet);
+    procedure cdsCadastroBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
+    procedure pesquisar(valor: String);
   public
     { Public declarations }
   end;
@@ -86,6 +88,25 @@ implementation
 
 uses uDM;
 
+procedure TFCadProdutos.cdsCadastroBeforePost(DataSet: TDataSet);
+var
+  produto : TProduto;
+begin
+  inherited;
+  if dsCadastro.State in [dsInsert] then
+    begin
+      produto := TProduto.Create;
+      if not produto.setHistorico(cdsCadastroCODIGO.AsInteger,
+        cdsCadastroESTOQUE.AsFloat,0) then
+          begin
+            ShowMessage('Erro ao cadastrar log de produto.');
+          end;
+
+      produto.Free;
+    end;
+
+end;
+
 procedure TFCadProdutos.cdsCadastroNewRecord(DataSet: TDataSet);
 var
   util : TUtils;
@@ -95,6 +116,17 @@ begin
   cdsCadastroCODIGO.AsInteger := util.getId('GPRODUTOS');
   util.Free;
   inherited;
+
+end;
+
+procedure TFCadProdutos.pesquisar(valor: String);
+begin
+  cdsConsulta.Close;
+  cdsConsulta.Params[0].AsString := valor + '%';
+  cdsConsulta.Params[1].AsString := valor + '%';
+  cdsConsulta.Params[2].AsString := valor + '%';
+  cdsConsulta.Params[3].AsString := valor + '%';
+  cdsConsulta.Open;
 
 end;
 
@@ -123,12 +155,7 @@ end;
 procedure TFCadProdutos.spbPesquisarClick(Sender: TObject);
 begin
   inherited;
-  cdsConsulta.Close;
-  cdsConsulta.Params[0].AsString := edPesquisar.Text + '%';
-  cdsConsulta.Params[1].AsString := edPesquisar.Text + '%';
-  cdsConsulta.Params[2].AsString := edPesquisar.Text + '%';
-  cdsConsulta.Params[3].AsString := edPesquisar.Text + '%';
-  cdsConsulta.Open;
+  pesquisar(edPesquisar.Text);
 end;
 
 end.

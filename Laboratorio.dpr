@@ -14,7 +14,8 @@ uses
   uTUtils in 'uTUtils.pas',
   uCadLote in 'uCadLote.pas' {FCadLote},
   uCadProdutos in 'uCadProdutos.pas' {FCadProdutos},
-  uCadMarca in 'uCadMarca.pas' {FCadMarcas};
+  uCadMarca in 'uCadMarca.pas' {FCadMarcas},
+  uTProdutos in 'uTProdutos.pas';
 
 {$R *.res}
 

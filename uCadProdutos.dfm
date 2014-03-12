@@ -6,6 +6,7 @@ inherited FCadProdutos: TFCadProdutos
     ExplicitWidth = 158
   end
   inherited PageControl1: TPageControl
+    ActivePage = tabCadastro
     inherited tabCadastro: TTabSheet
       object Label1: TLabel [0]
         Left = 16
@@ -206,6 +207,7 @@ inherited FCadProdutos: TFCadProdutos
       end
     end
     inherited tabConsulta: TTabSheet
+      ExplicitWidth = 150
       inherited GroupBox2: TGroupBox
         inherited DBGrid1: TDBGrid
           DataSource = dsConsulta
@@ -288,6 +290,7 @@ inherited FCadProdutos: TFCadProdutos
         Name = 'codigo'
         ParamType = ptInput
       end>
+    BeforePost = cdsCadastroBeforePost
     Left = 528
     Top = 16
     object cdsCadastroCODIGO: TIntegerField
@@ -474,7 +477,7 @@ inherited FCadProdutos: TFCadProdutos
     Left = 432
     Top = 304
     Bitmap = {
-      494C010141005001640320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101410050016C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

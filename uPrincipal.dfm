@@ -2,8 +2,8 @@ object FPrincipal: TFPrincipal
   Left = 0
   Top = 0
   Caption = 'Laboratorio de Programa'#231#227'o'
-  ClientHeight = 414
-  ClientWidth = 665
+  ClientHeight = 441
+  ClientWidth = 715
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,8 +19,8 @@ object FPrincipal: TFPrincipal
   object Image1: TImage
     Left = 0
     Top = 143
-    Width = 665
-    Height = 252
+    Width = 715
+    Height = 279
     Align = alClient
     Picture.Data = {
       0A544A504547496D61676548990300FFD8FFE1001845786966000049492A0008
@@ -7396,18 +7396,22 @@ object FPrincipal: TFPrincipal
       00000000000000000000000000000000000000001FFFD9}
     Stretch = True
     ExplicitTop = 145
+    ExplicitWidth = 665
+    ExplicitHeight = 252
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 395
-    Width = 665
+    Top = 422
+    Width = 715
     Height = 19
     Panels = <>
+    ExplicitTop = 395
+    ExplicitWidth = 665
   end
   object Ribbon1: TRibbon
     Left = 0
     Top = 0
-    Width = 665
+    Width = 715
     Height = 143
     Cursor = crHandPoint
     ActionManager = ActionManager1
@@ -7421,25 +7425,28 @@ object FPrincipal: TFPrincipal
         Caption = 'RibbonPage2'
         Page = RibbonPage2
       end>
+    ExplicitWidth = 665
     DesignSize = (
-      665
+      715
       143)
     StyleName = 'Ribbon - Luna'
     object RibbonPage2: TRibbonPage
       Left = 0
       Top = 50
-      Width = 664
+      Width = 714
       Height = 93
       Caption = 'RibbonPage2'
       Index = 1
+      ExplicitWidth = 664
     end
     object RibbonPage1: TRibbonPage
       Left = 0
       Top = 50
-      Width = 664
+      Width = 714
       Height = 93
       Caption = 'Estoque'
       Index = 0
+      ExplicitWidth = 664
       object RibbonGroup1: TRibbonGroup
         Left = 4
         Top = 3
@@ -7459,7 +7466,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001580320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001600320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16460,6 +16467,7 @@ object FPrincipal: TFPrincipal
           end
           item
             Action = acMarca
+            Caption = '&Marca'
             ImageIndex = 5
             CommandProperties.ButtonSize = bsLarge
           end

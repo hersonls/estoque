@@ -4,7 +4,7 @@ object FPadraoVazio: TFPadraoVazio
   Caption = 'FPadraoVazio'
   ClientHeight = 250
   ClientWidth = 503
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -23,8 +23,5 @@ object FPadraoVazio: TFPadraoVazio
     BevelInner = bvLowered
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 168
-    ExplicitTop = 128
-    ExplicitWidth = 185
   end
 end
