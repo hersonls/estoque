@@ -7405,8 +7405,6 @@ object FPrincipal: TFPrincipal
     Width = 715
     Height = 19
     Panels = <>
-    ExplicitTop = 395
-    ExplicitWidth = 665
   end
   object Ribbon1: TRibbon
     Left = 0
@@ -7425,7 +7423,6 @@ object FPrincipal: TFPrincipal
         Caption = 'RibbonPage2'
         Page = RibbonPage2
       end>
-    ExplicitWidth = 665
     DesignSize = (
       715
       143)
@@ -7437,7 +7434,6 @@ object FPrincipal: TFPrincipal
       Height = 93
       Caption = 'RibbonPage2'
       Index = 1
-      ExplicitWidth = 664
     end
     object RibbonPage1: TRibbonPage
       Left = 0
@@ -7446,11 +7442,10 @@ object FPrincipal: TFPrincipal
       Height = 93
       Caption = 'Estoque'
       Index = 0
-      ExplicitWidth = 664
       object RibbonGroup1: TRibbonGroup
         Left = 4
         Top = 3
-        Width = 202
+        Width = 249
         Height = 86
         Cursor = crHandPoint
         ActionManager = ActionManager1
@@ -7466,7 +7461,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001600320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001640320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16476,6 +16471,11 @@ object FPrincipal: TFPrincipal
             Caption = '&Produtos'
             ImageIndex = 11
             CommandProperties.ButtonSize = bsLarge
+          end
+          item
+            Action = Action1
+            ImageIndex = 20
+            CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup1
       end>
@@ -16506,6 +16506,12 @@ object FPrincipal: TFPrincipal
       Caption = 'Marca'
       ImageIndex = 5
       OnExecute = acMarcaExecute
+    end
+    object Action1: TAction
+      Category = 'Estoque'
+      Caption = 'Balan'#231'o'
+      ImageIndex = 20
+      OnExecute = Action1Execute
     end
   end
 end

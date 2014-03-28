@@ -23,11 +23,13 @@ type
     acProdutos: TAction;
     Image1: TImage;
     acMarca: TAction;
+    Action1: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acCategoriaExecute(Sender: TObject);
     procedure acCadLoteExecute(Sender: TObject);
     procedure acProdutosExecute(Sender: TObject);
     procedure acMarcaExecute(Sender: TObject);
+    procedure Action1Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,7 +43,7 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos, uCadMarca;
+uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos, uCadMarca, uBalanco;
 
 procedure TFPrincipal.acCadLoteExecute(Sender: TObject);
 begin
@@ -61,6 +63,11 @@ end;
 procedure TFPrincipal.acProdutosExecute(Sender: TObject);
 begin
   TFCadProdutos.Create(Self).Show;
+end;
+
+procedure TFPrincipal.Action1Execute(Sender: TObject);
+begin
+  TFBalanco.Create(Self).Show;
 end;
 
 procedure TFPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

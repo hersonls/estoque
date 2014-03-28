@@ -1,7 +1,7 @@
 object dm: Tdm
   OldCreateOrder = False
-  Height = 388
-  Width = 603
+  Height = 209
+  Width = 479
   object Conexao: TSQLConnection
     ConnectionName = 'FBConnection'
     DriverName = 'Firebird'
