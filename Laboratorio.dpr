@@ -16,7 +16,8 @@ uses
   uCadProdutos in 'uCadProdutos.pas' {FCadProdutos},
   uCadMarca in 'uCadMarca.pas' {FCadMarcas},
   uTProdutos in 'uTProdutos.pas',
-  uBalanco in 'uBalanco.pas' {FBalanco};
+  uBalanco in 'uBalanco.pas' {FBalanco},
+  uFLogin in 'uFLogin.pas' {FLogin};
 
 {$R *.res}
 
@@ -25,5 +26,11 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(TFPrincipal, FPrincipal);
+  Application.CreateForm(TFLogin, FLogin);
+
+  FPrincipal.Show;
+
+  FLogin.ShowModal;
+
   Application.Run;
 end.

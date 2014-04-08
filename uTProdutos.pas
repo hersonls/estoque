@@ -8,7 +8,8 @@ Type
   TProduto = class
    public
      //grava o historico de movimentações de um produto
-     function setHistorico(pProduto: Integer; pQt: Double; pUsuario: Integer): Boolean;
+     function setHistorico(pProduto: Integer; pQt: Double; pUsuario: Integer): Boolean; overload;
+     function setHistorico(pProduto: Integer; pQt: Double; pUsuario, operacao: Integer): Boolean; overload;
      //grava a modificação do estoque do produto
      function estoque(pProduto: Integer; pQt: Double; pUsuario, pOperacao: Integer): Boolean;
      //retorna o estoque de um produto
@@ -39,7 +40,7 @@ begin
 
     //aqui compara se é pra dar entrada ou saida..
     // 1 - Entrada
-    //0 - Saída.
+    // 0 - Saída.
     if pOperacao = 1 then
       estoque := estoque + pQt
     else
@@ -50,7 +51,7 @@ begin
     sQr.ExecSQL;
 
     //aqui grava o historico da movimentação.
-    Self.setHistorico(pProduto, pQt, pUsuario);
+    Self.setHistorico(pProduto,pQt,pOperacao,pUsuario);
 
     Result := True;
   except
@@ -70,6 +71,31 @@ begin
   sQr.Params[0].AsInteger := pProduto;
   sQr.Open;
   Result := sQr.FieldByName('estoque').AsFloat;
+  sQr.Free;
+end;
+
+function TProduto.setHistorico(pProduto: Integer; pQt: Double; pUsuario,
+  operacao: Integer): Boolean;
+var
+  sQr: TSQLDataSet;
+begin
+  sQr := TSQLDataSet.Create(nil);
+  sQr.SQLConnection := dm.Conexao;
+  try
+    sQr.CommandText := ' insert into hestoque (produto, quantidade, operacao, usuario)' +
+                       ' values (:produto, :quantidade,:operacao,:usuario)';
+    sQr.Params[0].AsInteger := pProduto;
+    sQr.Params[1].AsFloat   := pQt;
+    sQr.Params[2].AsInteger := operacao;
+    sQr.Params[3].AsInteger := pUsuario;
+
+    sQr.ExecSQL;
+
+    Result := True;
+  except
+    Result := False;
+  end;
+
   sQr.Free;
 end;
 

@@ -34,7 +34,6 @@ type
     cdsConsulta: TClientDataSet;
     dsConsulta: TDataSource;
     listaDeImagens: TImageList;
-    SpeedButton1: TSpeedButton;
     procedure spbEditarClick(Sender: TObject);
     procedure spbExcluirClick(Sender: TObject);
     procedure spbImprimirClick(Sender: TObject);

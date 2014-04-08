@@ -13,6 +13,7 @@ object FPadraoVazio: TFPadraoVazio
   KeyPreview = True
   OldCreateOrder = False
   OnClose = FormClose
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -24,11 +25,10 @@ object FPadraoVazio: TFPadraoVazio
     BevelInner = bvLowered
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 503
     DesignSize = (
       586
       41)
-    object BitBtn1: TBitBtn
+    object btnSair: TBitBtn
       Left = 504
       Top = 9
       Width = 75
@@ -37,7 +37,7 @@ object FPadraoVazio: TFPadraoVazio
       Anchors = [akTop, akRight]
       Caption = 'Sair'
       TabOrder = 0
-      OnClick = BitBtn1Click
+      OnClick = btnSairClick
     end
   end
 end

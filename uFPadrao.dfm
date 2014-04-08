@@ -5,7 +5,6 @@ inherited FPadrao: TFPadrao
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
-  OnClose = FormClose
   OnCreate = FormCreate
   ExplicitWidth = 733
   ExplicitHeight = 422
@@ -19,17 +18,11 @@ inherited FPadrao: TFPadrao
     DesignSize = (
       717
       41)
-    object SpeedButton1: TSpeedButton
-      Left = 622
-      Top = 3
-      Width = 89
-      Height = 32
-      Cursor = crHandPoint
-      Anchors = [akTop, akRight]
-      Caption = 'Sair'
-      Flat = True
-      OnClick = SpeedButton1Click
-      ExplicitLeft = 580
+    inherited btnSair: TBitBtn
+      Left = 636
+      Top = 10
+      ExplicitLeft = 636
+      ExplicitTop = 10
     end
   end
   object PageControl1: TPageControl
@@ -502,7 +495,7 @@ inherited FPadrao: TFPadrao
     Left = 456
     Top = 160
     Bitmap = {
-      494C0101410050015C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001600320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

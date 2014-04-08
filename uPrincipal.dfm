@@ -7418,23 +7418,11 @@ object FPrincipal: TFPrincipal
       item
         Caption = 'Estoque'
         Page = RibbonPage1
-      end
-      item
-        Caption = 'RibbonPage2'
-        Page = RibbonPage2
       end>
     DesignSize = (
       715
       143)
     StyleName = 'Ribbon - Luna'
-    object RibbonPage2: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 714
-      Height = 93
-      Caption = 'RibbonPage2'
-      Index = 1
-    end
     object RibbonPage1: TRibbonPage
       Left = 0
       Top = 50
@@ -7461,7 +7449,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C010141005001640320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101410050016C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16474,6 +16462,7 @@ object FPrincipal: TFPrincipal
           end
           item
             Action = Action1
+            Caption = '&Balan'#231'o'
             ImageIndex = 20
             CommandProperties.ButtonSize = bsLarge
           end>

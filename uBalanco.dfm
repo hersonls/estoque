@@ -5,13 +5,21 @@ inherited FBalanco: TFBalanco
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
+  OnKeyDown = FormKeyDown
   ExplicitWidth = 629
   ExplicitHeight = 387
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 613
+    ExplicitTop = 4
     ExplicitWidth = 613
+    inherited btnSair: TBitBtn
+      Left = 528
+      Top = 10
+      ExplicitLeft = 528
+      ExplicitTop = 10
+    end
   end
   object GroupBox1: TGroupBox
     Left = 0
@@ -53,21 +61,25 @@ inherited FBalanco: TFBalanco
     Align = alClient
     Caption = ' Produtos Encontrados '
     TabOrder = 2
-    object DBGrid1: TDBGrid
+    object gridProdutos: TDBGrid
       Left = 2
       Top = 15
       Width = 609
       Height = 171
+      Hint = 'Clique duas vezes para habilitar um novo lan'#231'amento.'
       Align = alClient
       BorderStyle = bsNone
       DataSource = dsPesquisa
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnDblClick = gridProdutosDblClick
       Columns = <
         item
           Expanded = False
@@ -96,34 +108,52 @@ inherited FBalanco: TFBalanco
         end>
     end
   end
-  object GroupBox3: TGroupBox
+  object grpControles: TGroupBox
     Left = 0
     Top = 280
     Width = 613
     Height = 69
     Align = alBottom
     Caption = ' Dados do lan'#231'amento '
+    Enabled = False
     TabOrder = 3
     object lblQuantidade: TLabel
       Left = 24
       Top = 16
       Width = 56
       Height = 13
-      Caption = 'Quantidade'
+      Caption = '&Quantidade'
+      FocusControl = edQuantidade
     end
     object spbConfirmar: TSpeedButton
-      Left = 408
-      Top = 19
+      Left = 409
+      Top = 24
       Width = 81
       Height = 42
       Cursor = crHandPoint
-      Caption = 'Confirmar'
+      Hint = 'Confirmar a opera'#231#227'o'
+      Caption = 'F5 - Confirmar'
       Flat = True
+      ParentShowHint = False
+      ShowHint = True
       OnClick = spbConfirmarClick
+    end
+    object spbCancelar: TSpeedButton
+      Left = 504
+      Top = 24
+      Width = 81
+      Height = 42
+      Cursor = crHandPoint
+      Hint = 'Cancela a opera'#231#227'o'
+      Caption = 'F6 - Cancelar'
+      Flat = True
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = spbCancelarClick
     end
     object edQuantidade: TEdit
       Left = 24
-      Top = 32
+      Top = 30
       Width = 121
       Height = 24
       Alignment = taCenter
@@ -135,6 +165,7 @@ inherited FBalanco: TFBalanco
       ParentFont = False
       TabOrder = 0
       TextHint = '0.00'
+      OnEnter = edQuantidadeEnter
     end
     object rdpOperacao: TRadioGroup
       Left = 176

@@ -9,9 +9,10 @@ uses
 type
   TFPadraoVazio = class(TForm)
     Panel1: TPanel;
-    BitBtn1: TBitBtn;
-    procedure BitBtn1Click(Sender: TObject);
+    btnSair: TBitBtn;
+    procedure btnSairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -25,7 +26,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TFPadraoVazio.BitBtn1Click(Sender: TObject);
+procedure TFPadraoVazio.btnSairClick(Sender: TObject);
 begin
   Close;
 end;
@@ -33,6 +34,19 @@ end;
 procedure TFPadraoVazio.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
+end;
+
+procedure TFPadraoVazio.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = 27 then
+    btnSairClick(Sender);
+
+  if key = 13 then
+    begin
+      Perform(WM_NEXTDLGCTL, 0,0);
+    end;
+
 end;
 
 end.

@@ -15,7 +15,6 @@ type
     Ribbon1: TRibbon;
     listaDeImagens: TImageList;
     RibbonPage1: TRibbonPage;
-    RibbonPage2: TRibbonPage;
     RibbonGroup1: TRibbonGroup;
     ActionManager1: TActionManager;
     acCategoria: TAction;
