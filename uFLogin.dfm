@@ -20,11 +20,12 @@ inherited FLogin: TFLogin
   end
   inherited Panel1: TPanel
     Width = 406
+    ExplicitWidth = 406
     inherited btnSair: TBitBtn
       Left = 290
       Width = 108
       Visible = False
-      ExplicitLeft = 280
+      ExplicitLeft = 290
       ExplicitWidth = 108
     end
   end
@@ -59,5 +60,25 @@ inherited FLogin: TFLogin
     PasswordChar = '*'
     TabOrder = 2
     TextHint = 'Senha'
+  end
+  object sqsLogin: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM USUARIO WHERE LOGIN =:LOGIN'#13#10'AND SENHA =:SENHA'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'LOGIN'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'SENHA'
+        ParamType = ptInput
+      end>
+    SQLConnection = dm.Conexao
+    Left = 152
+    Top = 40
   end
 end

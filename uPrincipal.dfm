@@ -7399,12 +7399,24 @@ object FPrincipal: TFPrincipal
     ExplicitWidth = 665
     ExplicitHeight = 252
   end
-  object StatusBar1: TStatusBar
+  object stbprincipal: TStatusBar
     Left = 0
     Top = 422
     Width = 715
     Height = 19
-    Panels = <>
+    Panels = <
+      item
+        Text = 'Data'
+        Width = 150
+      end
+      item
+        Text = 'Hora'
+        Width = 150
+      end
+      item
+        Text = 'Usu'#225'rio:'
+        Width = 50
+      end>
   end
   object Ribbon1: TRibbon
     Left = 0
@@ -7449,7 +7461,7 @@ object FPrincipal: TFPrincipal
     Left = 456
     Top = 160
     Bitmap = {
-      494C0101410050016C0320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010141005001700320002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002002000001002000000000000040
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -16502,5 +16514,10 @@ object FPrincipal: TFPrincipal
       ImageIndex = 20
       OnExecute = Action1Execute
     end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 352
+    Top = 224
   end
 end

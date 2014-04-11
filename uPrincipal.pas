@@ -11,7 +11,7 @@ uses
 
 type
   TFPrincipal = class(TForm)
-    StatusBar1: TStatusBar;
+    stbprincipal: TStatusBar;
     Ribbon1: TRibbon;
     listaDeImagens: TImageList;
     RibbonPage1: TRibbonPage;
@@ -23,12 +23,14 @@ type
     Image1: TImage;
     acMarca: TAction;
     Action1: TAction;
+    Timer1: TTimer;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acCategoriaExecute(Sender: TObject);
     procedure acCadLoteExecute(Sender: TObject);
     procedure acProdutosExecute(Sender: TObject);
     procedure acMarcaExecute(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,7 +44,8 @@ implementation
 
 {$R *.dfm}
 
-uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos, uCadMarca, uBalanco;
+uses uRelMovimentos, uCadCategoria, uCadLote, uCadProdutos, uCadMarca, uBalanco,
+  uFuncoes;
 
 procedure TFPrincipal.acCadLoteExecute(Sender: TObject);
 begin
@@ -73,9 +76,17 @@ procedure TFPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if Application.MessageBox('Deseja fechar o sistema?', 'Confirmação',
   MB_ICONQUESTION+MB_YESNO)=idYes then
-    Action := caFree
+    begin
+      logAcesso(codUsuario,codAcesso);
+      Action := caFree;
+    end
   else
     Action := caNone;
+end;
+
+procedure TFPrincipal.Timer1Timer(Sender: TObject);
+begin
+  stbprincipal.Panels[1].Text := 'Hora: ' + TimeToStr(Time);
 end;
 
 end.
